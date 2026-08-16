@@ -1,4 +1,4 @@
-# Phone Setup
+# StormFence: A Python-Based Azure detection engine
 ### _* *Phone Setup* *_
 #### _* *Change these settings* *_
 ![.](https://lh3.googleusercontent.com/u/0/drive-viewer/AITFw-yAzCt8QNntq9c5E1QpQayne7fWUbwrHBBVhKtWwR9uBAObUZlPlES8E-VfQ1LDCjRCL0xc2syErMXZglpKw3XLtpSZ=w1317-h640)
