@@ -1,0 +1,34 @@
+CommonSecurityLog_CL
+| where TimeGenerated >= ago(1d)
+| extend 
+    NormalizedAction = tolower(DeviceAction),
+    NormalizedSeverity = tolower(LogSeverity),
+    ThreatDescription = tolower(Message)
+| where 
+    // 1. Bedreigings wat toegelaat is (misgepaste/kritieke aksies)
+    (NormalizedAction in ("allow", "allowed", "permit", "permitted") and ThreatDescription has_any ("sql", "injection", "malware", "botnet", "spyware", "exploit", "c2", "phishing"))
+    // 2. Alle kritieke of hoë severity gebeurtenisse
+    or (NormalizedSeverity in ("critical", "high"))
+    // 3. Blokkades op VPN-verkeer
+    or (NormalizedAction in ("block", "deny", "drop") and ThreatDescription has "vpn")
+| summarize 
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated),
+    TotalEvents = count(),
+    DeviceVendors = make_set(DeviceVendor, 10),
+    DeviceProducts = make_set(DeviceProduct, 10),
+    ActionsTaken = make_set(DeviceAction, 10),
+    ThreatsDetected = make_set(Message, 10),
+    DestinationHosts = make_set(DestinationHostName, 10)
+    by SourceIP
+| project 
+    FirstSeen, 
+    LastSeen, 
+    SourceIP, 
+    TotalEvents, 
+    ActionsTaken, 
+    ThreatsDetected, 
+    DestinationHosts, 
+    DeviceVendors, 
+    DeviceProducts
+| order by TotalEvents desc
