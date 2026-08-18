@@ -1,0 +1,162 @@
+[
+  {
+    "ReportId": "b232b8cb-285d-428f-ab7b-1b223db2858c",
+    "ReportTimestamp": "2026-08-10T13:59:57Z",
+    "Files": [
+      "abc.kql",
+      "T1098.kql",
+      "T1110.kql"
+    ],
+    "Detections": {
+      "abc.kql": {
+        "Technique": "Unknown",
+        "Severity": "MEDIUM",
+        "Matches": 0,
+        "Records": []
+      },
+      "T1098.kql": {
+        "Technique": "T1098 - Additional Cloud Roles",
+        "Severity": "HIGH",
+        "Matches": 5,
+        "Records": [
+          {
+            "RecordId": 1,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:00:30.085067+00:00",
+              "OperationNameValue": "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Success"
+            }
+          },
+          {
+            "RecordId": 2,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          },
+          {
+            "RecordId": 3,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          },
+          {
+            "RecordId": 4,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          },
+          {
+            "RecordId": 5,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          }
+        ]
+      },
+      "T1110.kql": {
+        "Technique": "T1110 - Brute Force",
+        "Severity": "MEDIUM",
+        "Matches": 0,
+        "Records": []
+      }
+    }
+  },
+  {
+    "ReportId": "0b90c01d-2f4c-4888-992c-d643732fecc5",
+    "ReportTimestamp": "2026-08-10T14:00:57Z",
+    "Files": [
+      "abc.kql",
+      "T1098.kql",
+      "T1110.kql"
+    ],
+    "Detections": {
+      "abc.kql": {
+        "Technique": "Unknown",
+        "Severity": "MEDIUM",
+        "Matches": 0,
+        "Records": []
+      },
+      "T1098.kql": {
+        "Technique": "T1098 - Additional Cloud Roles",
+        "Severity": "HIGH",
+        "Matches": 5,
+        "Records": [
+          {
+            "RecordId": 1,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:00:30.085067+00:00",
+              "OperationNameValue": "MICROSOFT.RESOURCES/DEPLOYMENTS/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Success"
+            }
+          },
+          {
+            "RecordId": 2,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          },
+          {
+            "RecordId": 3,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          },
+          {
+            "RecordId": 4,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          },
+          {
+            "RecordId": 5,
+            "Fields": {
+              "TimeGenerated": "2026-07-31T21:02:05.218452+00:00",
+              "OperationNameValue": "MICROSOFT.SECURITYINSIGHTS/CONTENTTEMPLATES/WRITE",
+              "Caller": "56217986@mynwu.ac.za",
+              "ResourceGroup": "DETECTION-LAB-RG",
+              "ActivityStatusValue": "Start"
+            }
+          }
+        ]
+      },
+      "T1110.kql": {
+        "Technique": "T1110 - Brute Force",
+        "Severity": "MEDIUM",
+        "Matches": 0,
+        "Records": []
+      }
+    }
+  }
+]
