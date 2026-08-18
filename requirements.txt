@@ -1,0 +1,4 @@
+azure-identity==1.19.0
+azure-monitor-query==1.4.1
+
+# The MS Azure CLI tool needs to be installed. https://aka.ms/installazurecliwindows
