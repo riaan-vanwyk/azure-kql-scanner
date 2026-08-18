@@ -1,0 +1,17 @@
+CommonSecurityLog_CL
+| where ThreatDescription contains "SQL injection" 
+   or DeviceEventClassID in ("web-attack", "attack")
+   or FlexString1 == "hacking"
+| project 
+    TimeGenerated,
+    SourceIP,
+    SourceUserName,
+    DestinationIP,
+    DestinationHostName,
+    RequestURL,
+    RequestMethod,
+    RequestClientApplication,
+    ThreatDescription,
+    ThreatConfidence,
+    SimplifiedDeviceAction
+| sort by TimeGenerated desc

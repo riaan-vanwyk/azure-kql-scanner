@@ -1,0 +1,25 @@
+CommonSecurityLog_CL
+| where TimeGenerated >= ago(24h)
+| where isnotempty(SourceIP) and isnotempty(DestinationUserName)
+| summarize
+    Attempts = count(),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated)
+    by SourceIP, DestinationUserName, bin(TimeGenerated, 10m)
+| where Attempts >= 3
+| extend
+    Detection = "T1110 - Brute Force",
+    Severity = case(
+        Attempts >= 10, "CRITICAL",
+        Attempts >= 5, "HIGH",
+        "MEDIUM"
+    )
+| project
+    TimeGenerated = FirstSeen,
+    LastSeen,
+    SourceIP,
+    DestinationUserName,
+    Attempts,
+    Detection,
+    Severity
+| order by Attempts desc

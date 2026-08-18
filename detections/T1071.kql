@@ -1,0 +1,12 @@
+CommonSecurityLog_CL
+| where IndicatorThreatType in ("C2", "Botnet") 
+   or Activity contains "spyware"
+| summarize 
+    TotalEvents = count(),
+    UniqueDestinations = dcount(DestinationIP),
+    UserAgents = make_set(RequestClientApplication),
+    URLs = make_set(RequestURL),
+    MaliciousCountries = make_set(MaliciousIPCountry)
+    by SourceIP, IndicatorThreatType, ThreatSeverity
+| where TotalEvents > 0
+| sort by ThreatSeverity desc

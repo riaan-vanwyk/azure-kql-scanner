@@ -1,0 +1,15 @@
+CommonSecurityLog_CL
+| where CommunicationDirection == "Outbound" or DeviceDirection == 1
+| extend TotalBytesSent = tolong(SentBytes)
+| where TotalBytesSent > 102400 // Filter for sessions sending > 100 KB
+| project 
+    TimeGenerated,
+    SourceIP,
+    SourceUserName,
+    DestinationHostName,
+    ApplicationProtocol,
+    TotalBytesSent,
+    ReceivedBytes,
+    RequestClientApplication,
+    SimplifiedDeviceAction
+| sort by TotalBytesSent desc

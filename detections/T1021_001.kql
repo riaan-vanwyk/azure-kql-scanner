@@ -1,0 +1,11 @@
+CommonSecurityLog_CL
+| where ApplicationProtocol == "RDP" or DestinationPort == 3389 or DestinationTranslatedPort == 3389
+| summarize 
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated),
+    RDP_Attempts = count(),
+    TargetHosts = make_set(DestinationHostName),
+    TargetUsers = make_set(DestinationUserName),
+    ActionsTaken = make_set(DeviceAction)
+    by SourceIP, SourceUserName, RemoteIP
+| sort by RDP_Attempts desc
